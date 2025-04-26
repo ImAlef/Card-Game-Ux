@@ -15,7 +15,7 @@ import HokmLobbies from './components/HokmLobbies';
 import OrientationHandler from './components/OrientationHandler';
 import BattlePass from './components/BattlePass';
 import Quests from './components/Quests';
-//import Compete from './components/Compete';
+import Compete from './components/Compete';
 
 function AppRoutes() {
   return (

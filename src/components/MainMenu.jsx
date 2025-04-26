@@ -291,23 +291,25 @@ function MainMenu() {
             onClick={() => navigate('/shop')}
           />
           <NavButton 
-            active={activeTab === 'passes'} 
-            label="PASSES" 
-            notification={false}
-            onClick={() => navigate('/battlepass')}
-          />
-          <NavButton 
             active={activeTab === 'quests'} 
             label="QUESTS" 
             notification={notifications.quests > 0} 
             count={notifications.quests}
             onClick={() => navigate('/quests')}
           />
+
+          <NavButton 
+            active={activeTab === 'passes'} 
+            label="PASSES" 
+            notification={false}
+            onClick={() => navigate('/battlepass')}
+          />
+
           <NavButton 
             active={activeTab === 'compete'} 
             label="COMPETE" 
             notification={false}
-            onClick={() => navigate('/tournaments')}
+            onClick={() => navigate('/compete')}
           />
           <NavButton 
             active={activeTab === 'career'} 

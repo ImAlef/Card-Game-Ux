@@ -15,6 +15,9 @@ import AppPreloader from './components/AppPreloader';
 import HokmLobbies from './components/HokmLobbies';
 import EnhancedHokmLobby from './components/EnhancedHokmLobby';
 import OrientationHandler from './components/OrientationHandler';
+import BattlePass from './components/BattlePass';
+import Quests from './components/Quests';
+import Compete from './components/Compete';
 import './App.css';
 import './responsiveUtils.css'; // Import responsive utilities
 
@@ -39,6 +42,13 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/customize" element={<Customize />} />
+             {/* اضافه کردن مسیرهای جدید */}
+            <Route path="/battlepass" element={<BattlePass />} />
+            <Route path="/quests" element={<Quests />} />
+            <Route path="/compete" element={<Compete />} />
+            <Route path="/tournaments" element={<Compete />} />
+  
+
             <Route path="*" element={<div className="min-h-screen bg-arcane flex flex-col items-center justify-center p-10">
               <h1 className="text-4xl text-yellow-400 font-bold mb-6">Page Not Found</h1>
               <p className="text-white mb-6">The page you're looking for doesn't exist.</p>
