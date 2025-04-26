@@ -1,0 +1,224 @@
+/* src/mobileOptimizations.css */
+
+/* Use the custom viewport height variable for proper mobile height */
+.vh-fix {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    /* Smaller text for mobile */
+    h1 {
+      font-size: 1.75rem !important;
+    }
+    
+    h2 {
+      font-size: 1.5rem !important;
+    }
+    
+    h3 {
+      font-size: 1.25rem !important;
+    }
+    
+    /* Smaller buttons and spacing */
+    .btn, button {
+      padding: 0.5rem 1rem !important;
+      font-size: 0.875rem !important;
+    }
+    
+    /* Tighter padding */
+    .p-mobile-tight {
+      padding: 0.5rem !important;
+    }
+    
+    .m-mobile-tight {
+      margin: 0.5rem !important;
+    }
+    
+    /* Hide elements on mobile */
+    .hide-on-mobile {
+      display: none !important;
+    }
+  }
+  
+  /* Landscape mobile optimizations */
+  @media (max-height: 500px) and (orientation: landscape) {
+    /* Smaller header */
+    header {
+      padding: 0.25rem 1rem !important;
+    }
+    
+    /* Minimal margins */
+    .landscape-minimal {
+      margin: 0.25rem !important;
+      padding: 0.25rem !important;
+    }
+    
+    /* Compress vertical spacing */
+    .landscape-compress {
+      transform: scale(0.85);
+      transform-origin: center bottom;
+    }
+    
+    /* Footer at absolute bottom */
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.25rem !important;
+    }
+    
+    /* Stack elements horizontally rather than vertically */
+    .landscape-horizontal {
+      flex-direction: row !important;
+    }
+    
+    /* Auto-hide scrollbars */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  }
+  
+  /* RTL Language Support */
+  html[lang="fa"] .rtl-support,
+  [dir="rtl"] {
+    /* Reverse common flexbox layouts */
+    .reverse-in-rtl {
+      flex-direction: row-reverse;
+    }
+    
+    /* Text alignment */
+    .text-align-in-rtl {
+      text-align: right;
+    }
+    
+    /* Margin and padding swapping */
+    .ml-in-rtl {
+      margin-right: 0.5rem !important;
+      margin-left: 0 !important;
+    }
+    
+    .mr-in-rtl {
+      margin-left: 0.5rem !important;
+      margin-right: 0 !important;
+    }
+    
+    .pl-in-rtl {
+      padding-right: 0.5rem !important;
+      padding-left: 0 !important;
+    }
+    
+    .pr-in-rtl {
+      padding-left: 0.5rem !important;
+      padding-right: 0 !important;
+    }
+  }
+  
+  /* Touch-friendly improvements */
+  @media (pointer: coarse) {
+    /* Larger touch targets */
+    button, a, input[type="checkbox"], input[type="radio"], select {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Add spacing between clickable elements */
+    .touch-friendly button,
+    .touch-friendly a {
+      margin: 0.25rem;
+    }
+    
+    /* Larger form elements */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      font-size: 16px !important; /* Prevents iOS zoom */
+      padding: 0.5rem !important;
+    }
+    
+    /* Adjust range sliders for better touch */
+    input[type="range"] {
+      height: 30px;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Disable hover effects that can cause flickering */
+    .disable-hover-on-touch {
+      transition: none !important;
+    }
+    
+    .disable-hover-on-touch:hover {
+      transform: none !important;
+    }
+  }
+  
+  /* Fix for iOS web app status bar */
+  .ios-safe-area {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Notch/Dynamic Island adjustments for iPhone */
+  @supports (padding-top: env(safe-area-inset-top)) {
+    .has-notch header {
+      padding-top: env(safe-area-inset-top);
+    }
+    
+    .has-notch footer {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+  
+  /* Low height screens (landscape phones) */
+  @media (max-height: 400px) {
+    /* Ultra compact mode */
+    .header-compact {
+      height: 32px !important;
+      min-height: 32px !important;
+    }
+    
+    .content-compact {
+      padding-top: 32px !important;
+    }
+    
+    /* Hide decorative elements */
+    .decorative {
+      display: none !important;
+    }
+    
+    /* Scale down game elements */
+    .game-elements {
+      transform: scale(0.8);
+      transform-origin: center center;
+    }
+  }
+  
+  /* Game component scale fixes */
+  .game-table-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Fix for iOS web app full screen mode */
+  @media screen and (display-mode: standalone) {
+    body {
+      position: fixed;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  }

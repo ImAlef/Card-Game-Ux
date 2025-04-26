@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #1a1033;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  color: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Shadow effects */
+.shadow-neon {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.shadow-neon-subtle {
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3), 0 0 20px rgba(168, 85, 247, 0.1);
+}
+
+.shadow-neon-strong {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.7), 0 0 40px rgba(168, 85, 247, 0.3);
+}
+
+.premium-glow {
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.7), 0 0 30px rgba(234, 179, 8, 0.3);
+}
+
+/* Ambient particles */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 215, 0, 0.6);
+  border-radius: 50%;
+  animation: float 4s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { 
+  left: 20%; 
+  top: 30%; 
+  animation-delay: 0s; 
+  width: 6px;
+  height: 6px;
+}
+.particle:nth-child(2) { 
+  left: 50%; 
+  top: 60%; 
+  animation-delay: 1.5s; 
+  width: 8px;
+  height: 8px;
+}
+.particle:nth-child(3) { 
+  left: 80%; 
+  top: 20%; 
+  animation-delay: 3s; 
+  width: 7px;
+  height: 7px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.6; }
+}
+
+/* Background styles */
+.bg-arcane {
+  background: linear-gradient(135deg, #2b1a4d, #1a1033);
+}
+
+/* Interactive effects */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.9), 0 0 40px rgba(168, 85, 247, 0.4);
+  transform: scale(1.05);
+}
+
+/* Utilities */
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none; 
+}
+
+.scrollbar-hide { 
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+/* Card effects */
+.card-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Game-specific UI elements */
+.trump-indicator {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  button { padding: 0.75rem; font-size: 1rem; }
+  
+  .shadow-neon {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
+  }
+  
+  .particle {
+    display: none;
+  }
+}
+
+/* Card animations */
+@keyframes dealCard {
+  0% { 
+    transform: translateY(-100px) rotate(-10deg); 
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0) rotate(0); 
+    opacity: 1;
+  }
+}
+
+.deal-animation {
+  animation: dealCard 0.3s forwards ease-out;
+}
+
+/* Winner animations */
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.winner-celebrate {
+  animation: celebrate 0.5s 3 ease-in-out;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-neon hover-glow;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded shadow-neon-subtle hover-glow;
+  transition: all 0.3s ease;
+}
+
+.btn-success {
+  @apply bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow-neon-subtle hover-glow;
+  transition: all 0.3s ease;
+}
+
+/* Text effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(234, 179, 8, 0.7), 0 0 20px rgba(234, 179, 8, 0.4);
+}
+
+/* Card table */
+.card-table {
+  background: radial-gradient(circle, #166534 0%, #064e3b 100%);
+  border: 8px solid #422006;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Blackjack specific */
+.card-stack {
+  position: relative;
+}
+
+.card-stack > * {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.card-stack > *:nth-child(1) { transform: rotate(-5deg); z-index: 1; }
+.card-stack > *:nth-child(2) { transform: rotate(0deg); z-index: 2; }
+.card-stack > *:nth-child(3) { transform: rotate(5deg); z-index: 3; }
+
+/* Loading states */
+.loading-pulse {
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingPulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

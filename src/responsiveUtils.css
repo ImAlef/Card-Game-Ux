@@ -1,0 +1,127 @@
+/* src/responsiveUtils.css */
+
+/* Base responsive utilities */
+.responsive-container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .responsive-container {
+      padding: 1rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .responsive-container {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Card game specific responsive styles */
+  .card-table-container {
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    min-height: 320px;
+    max-height: calc(100vh - 180px);
+  }
+  
+  .player-card {
+    width: 50px;
+    height: 70px;
+  }
+  
+  .player-card-sm {
+    width: 40px;
+    height: 56px;
+  }
+  
+  .player-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* For tablets and above */
+  @media (min-width: 768px) {
+    .player-card {
+      width: 70px;
+      height: 98px;
+    }
+    
+    .player-card-sm {
+      width: 50px;
+      height: 70px;
+    }
+    
+    .player-avatar {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  
+  /* For desktops */
+  @media (min-width: 1024px) {
+    .player-card {
+      width: 90px;
+      height: 126px;
+    }
+    
+    .player-card-sm {
+      width: 60px;
+      height: 84px;
+    }
+    
+    .player-avatar {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  /* Fix for mobile landscape mode */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .mobile-landscape-adjust {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    
+    .mobile-landscape-compact {
+      font-size: 0.875rem;
+    }
+    
+    .mobile-landscape-hide {
+      display: none;
+    }
+    
+    .mobile-landscape-smaller {
+      transform: scale(0.85);
+    }
+  }
+  
+  /* Fix for bottom controls when in landscape mode */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .game-controls-container {
+      bottom: 0;
+      padding-bottom: 5px;
+    }
+    
+    .player-hand-container {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  
+  /* RTL Support for Persian language */
+  [dir="rtl"] .card-table,
+  html[lang="fa"] .card-table {
+    direction: rtl;
+  }
+  
+  /* Override rotations for RTL */
+  html[lang="fa"] .rotate-left {
+    transform: rotate(90deg);
+  }
+  
+  html[lang="fa"] .rotate-right {
+    transform: rotate(-90deg);
+  }
